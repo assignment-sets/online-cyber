@@ -30,7 +30,7 @@ Add, edit, or remove required form fields and document upload slots per service,
 
 C. Work Queue & Lost-Token Recovery (Admin & Owner)
 
-View and filter incoming work requests by status (PENDING, IN_PROGRESS, COMPLETED, CANCELED).
+View and filter incoming work requests by status (PENDING, IN_PROGRESS, COMPLETED, CANCELED; incomplete INITIATED and unpaid DRAFT_AWAITING_ADVANCE requests are excluded from the default active queue and accessible via explicit filter—see [04-upload-lifecycle-and-retention.md](./04-upload-lifecycle-and-retention.md)).
 
 Lost-Token Search: Search requests by Token, Customer Phone, Customer Email, or submission date/time window to verify and assist customers who misplaced their token.
 

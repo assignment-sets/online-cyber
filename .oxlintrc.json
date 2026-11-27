@@ -15,6 +15,13 @@
     {
       "files": ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}"],
       "plugins": ["vitest"]
+    },
+    {
+      "files": ["components/ui/**/*.{ts,tsx}"],
+      "rules": {
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/prefer-tag-over-role": "off"
+      }
     }
   ]
 }

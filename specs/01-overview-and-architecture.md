@@ -32,10 +32,15 @@ Pluggable Checkout Interface: Payment processing must be isolated behind a clean
 
 Initial Draft Implementation: Wired to a Mock Payment Provider that simulates one-time checkout and deterministically returns SUCCESS or FAILED.
 
-5. Storage Structure & 14-Day Asset Retention
+5. Storage Structure & Asset Retention
 
 Single Folder per Request: All customer-uploaded input files and admin-uploaded output files for a single job are grouped under one isolated storage folder/prefix per request.
 
-14-Day Auto-Cleanup: Once a request reaches a terminal state (COMPLETED or CANCELED), all associated input and output files in object storage are automatically purged after 14 days.
+Tiered Auto-Cleanup: Associated input and output files in object storage (R2) are automatically purged on a tiered retention schedule:
+- INITIATED (incomplete upload), DRAFT_AWAITING_ADVANCE (unpaid 50% advance), and CANCELED (rejected/defective): R2 assets purged after 24 hours.
+- COMPLETED: R2 assets purged after 14 days.
+- PENDING / IN_PROGRESS: R2 assets retained until the request reaches a terminal state.
 
-Permanent Audit Metadata: Lightweight request metadata (Token, customer contact info, service selected, final status, payment records, timestamps) is retained permanently in the database for history and bookkeeping.
+Permanent Audit Metadata: Lightweight request metadata in Postgres (Token, customer contact info, service selected, final status, payment records, timestamps) is retained permanently for all requests and payments for history and bookkeeping.
+
+See [04-upload-lifecycle-and-retention.md](./04-upload-lifecycle-and-retention.md) for the full 6-state lifecycle, upload-on-submit parallel R2 flow, and daily cron sweep mechanics.

@@ -18,3 +18,4 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **Verify every code change:** Always run `npm run lint` and `npm run test:run` (single-run Vitest; `npm test` starts watch mode).
 - **Skip `npm run build` on small edits:** Run `npm run build` only after large multi-file changes or when explicitly requested.
 - **No autonomous Git operations:** **NEVER** stage (`git add`), unstage, commit (`git commit`), push (`git push`), create/switch branches, create worktrees, or perform any other Git/version-control mutation unless explicitly instructed by the user.
+- **No `walkthrough.md` artifacts:** **NEVER** create `walkthrough.md` or automated walkthrough artifact files after completing tasks; summarize changes directly in chat.

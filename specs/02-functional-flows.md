@@ -30,7 +30,7 @@ Per-File Size Cap: Tailored per field type (e.g., up to 10 MB per PDF, up to 15 
 
 Max File Count per Field: Tailored per field (e.g., 1 file for an ID document, up to 50 files for bulk print/xerox jobs).
 
-Direct-to-Storage Upload: Validated uploads transfer directly from the browser to the request's object storage folder via presigned URLs.
+Direct-to-Storage Upload (Upload-on-Submit): Selected files remain in the browser until the customer clicks Submit. After backend metadata validation creates an INITIATED request, validated files upload directly from the browser to the request's R2 folder in parallel (bounded concurrency) via batch presigned PUT URLs, then finalize the request. See [04-upload-lifecycle-and-retention.md](./04-upload-lifecycle-and-retention.md) for the full upload and retention lifecycle.
 
 4. Customer Submission & Token Issuance
 

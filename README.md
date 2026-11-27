@@ -8,12 +8,13 @@ A lightweight, mobile-first web portal for submitting cyber café, document, and
   - [01 — Overview & System Architecture](./specs/01-overview-and-architecture.md)
   - [02 — Functional Requirements & User Flows](./specs/02-functional-flows.md)
   - [03 — Admin & Owner Terminal (`/admin`)](./specs/03-admin-and-owner-terminal.md)
+  - [04 — Upload Lifecycle & Tiered Retention](./specs/04-upload-lifecycle-and-retention.md)
 
 ## Tech Stack
 
 - **Framework & Hosting:** Next.js 16 (App Router) on Vercel
 - **Database:** Supabase (PostgreSQL)
-- **Object Storage:** Cloudflare R2 / S3-compatible storage (presigned URLs, 14-day retention after completion/cancellation)
+- **Object Storage:** Cloudflare R2 / S3-compatible storage (presigned URLs, tiered retention: 24h for incomplete/unpaid/canceled, 14d for completed)
 - **Tooling:** TypeScript, Tailwind CSS, Oxlint, Vitest + React Testing Library + MSW
 
 ## Getting Started
